@@ -1,5 +1,6 @@
 export type ConfigKey =
-	'database_url'; // Special exception to share the name with atdatabases packages
+	'DATABASE_URL' // Special exception to share the name with atdatabases packages
+	| 'DATABASE_CONNECTION_POOLING_SIZE';
 
 export class ConfigError extends Error {
 	public static notFound(key: ConfigKey) {
@@ -15,9 +16,7 @@ export class ConfigError extends Error {
 	}
 }
 
-const translate = (key: ConfigKey) => key.replace(/\./g, '__');
-
-const raw = (key: ConfigKey) => process.env[translate(key)];
+const raw = (key: ConfigKey) => process.env[key];
 
 const strict = (key: ConfigKey, loose = false): string => {
 	const value = raw(key);
