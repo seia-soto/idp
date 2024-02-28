@@ -1,0 +1,12 @@
+{
+  "name": "idp",
+  "version": "1.0.0",
+  "description": "Identity provider.",
+  "main": "src/index.ts",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HoJeong Go <seia@outlook.kr>",
+  "license": "ISC"
+}
