@@ -2,14 +2,18 @@
   "name": "idp",
   "version": "1.0.0",
   "description": "Identity provider.",
-  "main": "src/index.ts",
+  "main": "./src/index.ts",
   "private": true,
   "scripts": {
+    "db:pull": "pg-schema ./src/db/__schema__",
+    "db:push": "pg-migrations apply --directory ./src/db/__migrations__",
+    "start": "node --import=tsimp/import .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "HoJeong Go <seia@outlook.kr>",
   "license": "ISC",
   "devDependencies": {
+    "@databases/pg-migrations": "^5.0.3",
     "@types/node": "^20.11.22",
     "@typescript-eslint/eslint-plugin": ">=7.0.2",
     "@typescript-eslint/parser": ">=7.0.2",
@@ -18,5 +22,10 @@
     "eslint-config-xo-typescript": "^3.0.0",
     "tsimp": "^2.0.11",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@databases/pg": "^5.5.0",
+    "@databases/pg-schema-cli": "^4.4.0",
+    "@databases/pg-typed": "^4.4.1"
   }
 }
