@@ -5,7 +5,9 @@
   "main": "./src/index.ts",
   "private": true,
   "scripts": {
-    "db:pull": "pg-schema ./src/db/__schema__",
+    "db:up": "pg-test start",
+    "db:down": "pg-test stop",
+    "db:pull": "pg-schema --directory ./src/db/__schema__",
     "db:push": "pg-migrations apply --directory ./src/db/__migrations__",
     "start": "node --import=tsimp/import .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@databases/pg-migrations": "^5.0.3",
+    "@databases/pg-test": "^3.1.2",
     "@types/node": "^20.11.22",
     "@typescript-eslint/eslint-plugin": ">=7.0.2",
     "@typescript-eslint/parser": ">=7.0.2",
